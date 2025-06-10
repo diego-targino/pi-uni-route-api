@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRoute.API", "UniRoute.API.csproj", "{ABBC9727-259F-4D78-B86E-1D8680B41D5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABBC9727-259F-4D78-B86E-1D8680B41D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBC9727-259F-4D78-B86E-1D8680B41D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBC9727-259F-4D78-B86E-1D8680B41D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBC9727-259F-4D78-B86E-1D8680B41D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7AD9DA8C-5C1E-4737-A050-1E146EC95851}
+	EndGlobalSection
+EndGlobal

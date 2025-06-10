@@ -1,0 +1,6 @@
+@UniRoute.API_HostAddress = http://localhost:5126
+
+GET {{UniRoute.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
