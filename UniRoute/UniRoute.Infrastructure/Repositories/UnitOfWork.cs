@@ -76,6 +76,6 @@ public class UnitOfWork : IUnitOfWork
     public async Task RollbackAsync()
     {
         if (_transaction is not null)
-            await _transaction.CommitAsync();
+            await _transaction.RollbackAsync();
     }
 }
