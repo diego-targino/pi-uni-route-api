@@ -3,7 +3,7 @@ using UniRoute.Domain.Entities;
 
 namespace UniRoute.Infrastructure.Data;
 
-public class ApplicationDbContext(DbContextOptions dbContextOptions) : DbContext(dbContextOptions)
+public class AppDbContext(DbContextOptions dbContextOptions) : DbContext(dbContextOptions)
 {
     public DbSet<Student> Students => Set<Student>();
 
@@ -12,4 +12,11 @@ public class ApplicationDbContext(DbContextOptions dbContextOptions) : DbContext
     public DbSet<BusStop> BusStops => Set<BusStop>();
 
     public DbSet<StopTime> StopTimes => Set<StopTime>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace UniRoute.Domain.Interfaces.Repositories;
 
-public interface IUnitOfWork
+public interface IUnitOfWork : IAsyncDisposable
 {
     IStudentRepository StudentRepository { get; }
 

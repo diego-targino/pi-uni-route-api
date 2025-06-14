@@ -1,27 +1,39 @@
-﻿using UniRoute.Domain.Entities.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using UniRoute.Domain.Entities.Base;
 using UniRoute.Domain.Interfaces.Base;
+using UniRoute.Infrastructure.Data;
 
 namespace UniRoute.Infrastructure.Repositories.Base;
 
-public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> where T : BaseEntity
 {
-    public Task CreateAsync(T entity)
+    protected readonly AppDbContext _appDbContext = appDbContext;
+
+    public async Task CreateAsync(T entity)
     {
-        throw new NotImplementedException();
+        await _appDbContext.Set<T>().AddAsync(entity);
     }
 
-    public Task DeleteByIdAsync(long id)
+    public async Task DeleteByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        T? entity = await _appDbContext.Set<T>().FindAsync(id) ??
+            throw new Exception("Não existe pae");
+
+        _appDbContext.Set<T>().Remove(entity);
     }
 
-    public Task<T?> GetByIdAsync(long id)
+    public async Task<T?> GetByIdAsync(long id, bool isTracking = true)
     {
-        throw new NotImplementedException();
+        var consultQuery = _appDbContext.Set<T>();
+
+        if (isTracking)
+            consultQuery.AsNoTracking();
+
+        return await consultQuery.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public Task UpdateAsync(T Entity)
+    public void Update(T entity)
     {
-        throw new NotImplementedException();
+        _appDbContext.Set<T>().Update(entity);
     }
 }

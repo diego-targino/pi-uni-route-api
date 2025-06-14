@@ -6,9 +6,9 @@ public interface IBaseRepository<T> where T : BaseEntity
 {
     Task CreateAsync(T entity);
 
-    Task<T?> GetByIdAsync(long id);
+    Task<T?> GetByIdAsync(long id, bool isTracking = true);
 
-    Task UpdateAsync(T Entity);
+    void Update(T Entity);
 
     Task DeleteByIdAsync(long id);
 }

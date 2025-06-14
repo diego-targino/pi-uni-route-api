@@ -1,9 +1,10 @@
 ﻿using UniRoute.Domain.Entities;
 using UniRoute.Domain.Interfaces.Repositories;
+using UniRoute.Infrastructure.Data;
 using UniRoute.Infrastructure.Repositories.Base;
 
 namespace UniRoute.Infrastructure.Repositories;
 
-public class AddressRepository : BaseRepository<Address>, IAddressRepository
+public class AddressRepository(AppDbContext appDbContext) : BaseRepository<Address>(appDbContext), IAddressRepository
 {
 }
