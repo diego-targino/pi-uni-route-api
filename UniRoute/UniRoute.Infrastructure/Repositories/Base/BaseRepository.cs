@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UniRoute.Domain.Entities.Base;
 using UniRoute.Domain.Interfaces.Base;
+using UniRoute.Domain.Messages;
 using UniRoute.Infrastructure.Data;
 
 namespace UniRoute.Infrastructure.Repositories.Base;
@@ -17,7 +18,7 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
     public async Task DeleteByIdAsync(long id)
     {
         T? entity = await _appDbContext.Set<T>().FindAsync(id) ??
-            throw new Exception("Não existe pae");
+            throw new Exception(RepositoryMessages.Delete_NotFound);
 
         _appDbContext.Set<T>().Remove(entity);
     }
@@ -26,7 +27,7 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
     {
         var consultQuery = _appDbContext.Set<T>();
 
-        if (isTracking)
+        if (!isTracking)
             consultQuery.AsNoTracking();
 
         return await consultQuery.FirstOrDefaultAsync(x => x.Id == id);

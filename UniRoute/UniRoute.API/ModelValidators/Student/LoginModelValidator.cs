@@ -4,18 +4,10 @@ using UniRoute.Domain.Messages;
 
 namespace UniRoute.API.ModelValidators.Student;
 
-public class CreateStudentModelValidator : AbstractValidator<CreateStudentModel>
+public class LoginModelValidator : AbstractValidator<LoginModel>
 {
-    public CreateStudentModelValidator()
+    public LoginModelValidator()
     {
-        RuleFor(model => model.Name)
-            .NotEmpty()
-            .WithMessage(model => string.Format(ValidationMessages.Required, nameof(model.Name)));
-
-        RuleFor(model => model.Name)
-            .MaximumLength(150)
-            .WithMessage(model => string.Format(ValidationMessages.MaxLength, nameof(model.Name)));
-
         RuleFor(model => model.Mail)
             .NotEmpty()
             .WithMessage(model => string.Format(ValidationMessages.Required, nameof(model.Mail)));

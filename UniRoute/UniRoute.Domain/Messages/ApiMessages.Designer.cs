@@ -22,14 +22,14 @@ namespace UniRoute.Domain.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ValidationMessages {
+    public class ApiMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ValidationMessages() {
+        internal ApiMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace UniRoute.Domain.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UniRoute.Domain.Messages.ValidationMessages", typeof(ValidationMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UniRoute.Domain.Messages.ApiMessages", typeof(ApiMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,11 @@ namespace UniRoute.Domain.Messages {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O email informado não é válido.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Houve um erro inesperado no sistema.
         /// </summary>
-        public static string InvalidMail {
+        public static string GenericError {
             get {
-                return ResourceManager.GetString("InvalidMail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo &apos;{0}&apos; deve ter no máximo &apos;{1}&apos; caracteres.
-        /// </summary>
-        public static string MaxLength {
-            get {
-                return ResourceManager.GetString("MaxLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo &apos;{0}&apos; é obrigatório.
-        /// </summary>
-        public static string Required {
-            get {
-                return ResourceManager.GetString("Required", resourceCulture);
+                return ResourceManager.GetString("GenericError", resourceCulture);
             }
         }
     }

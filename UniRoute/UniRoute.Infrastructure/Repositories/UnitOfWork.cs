@@ -32,6 +32,7 @@ public class UnitOfWork(
     {
         if (_transaction is not null)
         {
+            await _appDbContext.SaveChangesAsync();
             await _transaction.CommitAsync();
             await _transaction.DisposeAsync();
             _transaction = null;

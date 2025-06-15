@@ -9,4 +9,9 @@ public static class Extensions
     {
         services.AddValidatorsFromAssemblyContaining<CreateStudentModelValidator>();
     }
+
+    public static void AddMappers(this IServiceCollection services)
+    {
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    }
 }

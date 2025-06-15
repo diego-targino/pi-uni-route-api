@@ -22,14 +22,14 @@ namespace UniRoute.Domain.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ValidationMessages {
+    public class RepositoryMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ValidationMessages() {
+        internal RepositoryMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace UniRoute.Domain.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UniRoute.Domain.Messages.ValidationMessages", typeof(ValidationMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UniRoute.Domain.Messages.RepositoryMessages", typeof(RepositoryMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,11 @@ namespace UniRoute.Domain.Messages {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O email informado não é válido.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A entidade com Id &apos;{0}&apos; não foi encontrada.
         /// </summary>
-        public static string InvalidMail {
+        public static string Delete_NotFound {
             get {
-                return ResourceManager.GetString("InvalidMail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo &apos;{0}&apos; deve ter no máximo &apos;{1}&apos; caracteres.
-        /// </summary>
-        public static string MaxLength {
-            get {
-                return ResourceManager.GetString("MaxLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo &apos;{0}&apos; é obrigatório.
-        /// </summary>
-        public static string Required {
-            get {
-                return ResourceManager.GetString("Required", resourceCulture);
+                return ResourceManager.GetString("Delete_NotFound", resourceCulture);
             }
         }
     }

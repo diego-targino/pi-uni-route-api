@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using UniRoute.API.Model.Student;
-using UniRoute.Domain.DTO.Student;
+using UniRoute.Domain.DTO.Request.Student;
+using UniRoute.Domain.DTO.Response.Student;
 using UniRoute.Domain.Interfaces.Services;
 
 namespace UniRoute.API.Controllers;
@@ -18,5 +19,15 @@ public class StudentController(IStudentService studentService, IMapper mapper) :
         await studentService.CreateAsync(createStudentDTO);
 
         return StatusCode(StatusCodes.Status201Created);
+    }
+
+    [HttpPost("/login")]
+    public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+    {
+        LoginDTO loginDTO = mapper.Map<LoginDTO>(loginModel);
+        
+        LoginResponseDTO loginResponseDTO = await studentService.LoginAsync(loginDTO);
+        
+        return StatusCode(StatusCodes.Status200OK, loginResponseDTO);
     }
 }

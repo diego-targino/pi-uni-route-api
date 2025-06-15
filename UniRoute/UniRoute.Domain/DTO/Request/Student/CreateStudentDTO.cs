@@ -1,4 +1,4 @@
-﻿namespace UniRoute.Domain.DTO.Student;
+﻿namespace UniRoute.Domain.DTO.Request.Student;
 
 public class CreateStudentDTO
 {
