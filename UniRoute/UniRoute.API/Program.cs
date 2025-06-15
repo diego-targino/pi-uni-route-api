@@ -1,3 +1,4 @@
+using UniRoute.API.IoC;
 using UniRoute.CrossCutting.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositoriesDI(builder.Configuration);
+builder.Services.AddApplicationServicesDI();
+builder.Services.AddFluentValidation();
 
 var app = builder.Build();
 

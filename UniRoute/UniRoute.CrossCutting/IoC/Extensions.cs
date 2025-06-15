@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UniRoute.Application.Services;
 using UniRoute.Domain.Interfaces.Repositories;
+using UniRoute.Domain.Interfaces.Services;
 using UniRoute.Infrastructure.Data;
 using UniRoute.Infrastructure.Repositories;
 
@@ -19,6 +21,14 @@ public static class Extensions
         services.AddScoped<IAddressRepository, AddressRepository>();
         services.AddScoped<IBusStopRepository, BusStopRepository>();
         services.AddScoped<IStopTimeRepository, StopTimeRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddApplicationServicesDI(this IServiceCollection services)
+    {
+        services.AddScoped<IStudentService, StudentService>();
+        services.AddScoped<ICryptographyService, CryptographyService>();
 
         return services;
     }
