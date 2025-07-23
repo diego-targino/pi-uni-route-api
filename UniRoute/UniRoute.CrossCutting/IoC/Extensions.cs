@@ -29,6 +29,8 @@ public static class Extensions
     {
         services.AddScoped<IStudentService, StudentService>();
         services.AddScoped<ICryptographyService, CryptographyService>();
+        services.AddScoped<IAddressService, AddressService>();
+        services.AddScoped<IBusStopService, BusStopService>();
 
         return services;
     }

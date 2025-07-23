@@ -41,11 +41,18 @@ public class StudentService(IUnitOfWork unitOfWork, ICryptographyService cryptog
 
     public async Task<LoginResponseDTO> LoginAsync(LoginDTO loginDTO)
     {
-        Student student = await unitOfWork.StudentRepository.GetByMailAsync(loginDTO.Mail) ?? throw new NotFoundException("rapaz, não foi encontrado estudante");
+        Student student = await unitOfWork.StudentRepository.GetByMailAsync(loginDTO.Mail)
+            ?? throw new BadRequestException(BusinessMessages.Student_Login_Fail);
 
         if (cryptographyService.VerifyPassword(student.Password, loginDTO.Password!, student.Salt))
-            throw new BadRequestException("Usuário ou senha inválido");
+            throw new BadRequestException(BusinessMessages.Student_Login_Fail);
 
-        return new LoginResponseDTO();
+        LoginResponseDTO loginResponseDTO = mapper.Map<LoginResponseDTO>(student);
+
+        Address? address = await unitOfWork.AddressRepository.GetByStudentIdAsync(student.Id);
+
+        loginResponseDTO.Address = mapper.Map<AddressDTO?>(address);
+
+        return loginResponseDTO;
     }
 }

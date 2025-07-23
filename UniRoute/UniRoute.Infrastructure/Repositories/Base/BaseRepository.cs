@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using UniRoute.Domain.Entities.Base;
 using UniRoute.Domain.Interfaces.Base;
 using UniRoute.Domain.Messages;
@@ -21,6 +22,16 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
             throw new Exception(RepositoryMessages.Delete_NotFound);
 
         _appDbContext.Set<T>().Remove(entity);
+    }
+
+    public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null)
+    {
+        IQueryable<T> query = _appDbContext.Set<T>().AsNoTracking();
+
+        if (filter is not null)
+            query = query.Where(filter);
+
+        return await query.ToListAsync();
     }
 
     public async Task<T?> GetByIdAsync(long id, bool isTracking = true)

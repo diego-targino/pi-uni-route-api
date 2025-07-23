@@ -79,6 +79,15 @@ namespace UniRoute.Domain.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O valor do campo {0} deve ser maior ou igual a {1}.
+        /// </summary>
+        public static string MinValue {
+            get {
+                return ResourceManager.GetString("MinValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O campo &apos;{0}&apos; é obrigatório.
         /// </summary>
         public static string Required {

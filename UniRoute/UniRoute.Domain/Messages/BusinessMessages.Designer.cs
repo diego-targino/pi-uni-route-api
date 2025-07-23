@@ -61,6 +61,42 @@ namespace UniRoute.Domain.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O estudante especificado já tem um endereço cadastrado.
+        /// </summary>
+        public static string Address_Already_Exists {
+            get {
+                return ResourceManager.GetString("Address_Already_Exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O endereço especificado não foi encontrado.
+        /// </summary>
+        public static string Address_Not_Found {
+            get {
+                return ResourceManager.GetString("Address_Not_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou senha inválidos.
+        /// </summary>
+        public static string Student_Login_Fail {
+            get {
+                return ResourceManager.GetString("Student_Login_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Estudante especificado não encontrado.
+        /// </summary>
+        public static string Student_Not_Found {
+            get {
+                return ResourceManager.GetString("Student_Not_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Já existe um usuário com o email informado.
         /// </summary>
         public static string Sutudent_Mail_Already_Exists {

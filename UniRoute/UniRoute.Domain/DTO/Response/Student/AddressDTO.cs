@@ -1,9 +1,9 @@
-﻿namespace UniRoute.Domain.DTO.Request.Address;
+﻿namespace UniRoute.Domain.DTO.Response.Student;
 
 public class AddressDTO
 {
     public long Id { get; set; }
-    
+
     public string? Street { get; set; }
 
     public string? PostalCode { get; set; }

@@ -5,4 +5,5 @@ namespace UniRoute.Domain.Interfaces.Repositories;
 
 public interface IAddressRepository : IBaseRepository<Address>
 {
+    Task<Address?> GetByStudentIdAsync(long studentId);
 }
