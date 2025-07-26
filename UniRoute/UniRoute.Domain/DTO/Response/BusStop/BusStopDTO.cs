@@ -2,6 +2,8 @@
 
 public class BusStopDTO
 {
+    public long Id { get; set; }
+
     public string? Name { get; set; }
 
     public string? AddressDatails { get; set; }
