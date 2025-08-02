@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Text.RegularExpressions;
 using UniRoute.API.Model.Address;
 using UniRoute.Domain.DTO.Request.Address;
 using UniRoute.Domain.DTO.Response.Address;
@@ -20,6 +21,7 @@ public class AddressMappingProfile : Profile
             .ForMember(dest => dest.Longitude, opt => opt.MapFrom(src => src.UpdateAddressModel.Longitude));
 
         CreateMap<Address, AddressDTO>();
-        CreateMap<CreateAddressDTO, Address>();
+        CreateMap<CreateAddressDTO, Address>()
+            .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => Regex.Replace(src.PostalCode!, @"\D", "") ));
     }
 }
