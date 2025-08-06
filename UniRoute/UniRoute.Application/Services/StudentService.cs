@@ -44,7 +44,7 @@ public class StudentService(IUnitOfWork unitOfWork, ICryptographyService cryptog
         Student student = await unitOfWork.StudentRepository.GetByMailAsync(loginDTO.Mail)
             ?? throw new BadRequestException(BusinessMessages.Student_Login_Fail);
 
-        if (cryptographyService.VerifyPassword(student.Password, loginDTO.Password!, student.Salt))
+        if (!cryptographyService.VerifyPassword(student.Password, loginDTO.Password!, student.Salt))
             throw new BadRequestException(BusinessMessages.Student_Login_Fail);
 
         LoginResponseDTO loginResponseDTO = mapper.Map<LoginResponseDTO>(student);
